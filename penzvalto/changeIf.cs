@@ -17,8 +17,20 @@ namespace sampleproject
         {
             Console.WriteLine("Adj meg egy összeget:");
             int osszeg = Convert.ToInt32(Console.ReadLine());
-
-            int kerek = osszeg - (osszeg % 5);
+            int kerek;
+            kerek = osszeg - ( ( (osszeg % 5) < 3 ) ? (osszeg % 5) : -( 5 - (osszeg % 5) ) ); // untested
+            
+            /*
+            if ((osszeg % 5) < 3)
+            {
+                kerek = osszeg - (osszeg % 5);
+            }
+            else
+            {
+                kerek = osszeg + (5 - (osszeg % 5));
+            }
+            */
+            
             Console.WriteLine("A kerekített összeg: " + kerek);
 
             int reszosszeg = kerek;
