@@ -48,7 +48,7 @@ class Program
         {
             if (szamok[i]!=0)
             {
-                Console.WriteLine(szamok[i] + " ");
+                Console.Write(szamok[i] + " ");
             }
         }
 
