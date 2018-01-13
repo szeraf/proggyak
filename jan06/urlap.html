@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <title>PHP gyak2</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form action="feldolgoz.php" method="POST">
+            Vezetéknév: <input type="text" placeholder="vezetéknév" name="vnev"><br>
+            Keresztnév: <input type="text" placeholder="keresztnév" name="knev"><br>
+            Jelszó: <input type="password" placeholder="jelszó" name="pass"><br>
+            Településtípus:
+            <select name="teleptip">
+                <option value="1">Község</option>
+                <option value="2">Város</option>
+                <option value="3">Megyeszékhely</option>
+                <option value="4">Főváros</option>
+            </select><br>
+            E-mail: <input type="email" placeholder="e-mail" name="email"><br>
+            <input type="submit">
+        </form>
+    </body>
+</html>
