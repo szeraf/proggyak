@@ -31,11 +31,13 @@ namespace cshrp_gyak2
 
         static void menu(){
             System.Console.WriteLine();
+            System.Console.ForegroundColor = ConsoleColor.DarkYellow;
             System.Console.WriteLine("(1) Vektor elemeinek összege és átlaga");
             System.Console.WriteLine("(2) Vektor legkisebb és legnagyobb eleme");
             System.Console.WriteLine("(3) 25-ös szám indexei");
             System.Console.WriteLine("(4) felhasználó által beírt szám hányszor szerepel");
             System.Console.WriteLine("(5) Kilépés");
+            System.Console.ForegroundColor = ConsoleColor.Green;
             System.Console.WriteLine();
             System.Console.Write("Választott menüpont: ");
 
@@ -112,6 +114,8 @@ namespace cshrp_gyak2
                 kiir(vektor);
                 menu();
                 string menupont = Console.ReadLine();
+                
+                System.Console.ForegroundColor = ConsoleColor.DarkCyan;
                 switch (menupont)
                 {
                     case "1":
@@ -137,6 +141,7 @@ namespace cshrp_gyak2
                         System.Console.WriteLine("Nem értelmezhető választás!");
                         break;
                 }
+                System.Console.ForegroundColor = ConsoleColor.Green;
                 System.Console.WriteLine("Üss entert a folytatáshoz!");
                 Console.ReadLine();
             }while(true);
