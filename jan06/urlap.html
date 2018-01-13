@@ -11,12 +11,21 @@
             Jelszó: <input type="password" placeholder="jelszó" name="pass"><br>
             Településtípus:
             <select name="teleptip">
-                <option value="1">Község</option>
+                <option value="1" selected>Község</option>
                 <option value="2">Város</option>
                 <option value="3">Megyeszékhely</option>
                 <option value="4">Főváros</option>
             </select><br>
             E-mail: <input type="email" placeholder="e-mail" name="email"><br>
+            Nem: <input type="radio" name="nem" value="no" id="no"> <label for="no">Nő</label>
+                 <input type="radio" name="nem" value="ferfi" id="ferfi"> <label for="ferfi">Férfi</label>
+            <br>
+            Hírlevél: <input type="checkbox" name="heti" id="heti" checked> <label for="heti">Heti</label>
+                      <input type="checkbox" name="havi" id="havi"> <label for="havi">Havi</label>
+            <br>
+            Bemutatkozás: <br>
+            <textarea name="bemut">asdasd</textarea>
+            <br>
             <input type="submit">
         </form>
     </body>
