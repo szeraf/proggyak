@@ -4,6 +4,7 @@ namespace cshrp_gyak2
 {
     class Program
     {
+        // vektor feltoltese rand(bool):T-véletlen számokkal,F-(-1)kezdőértékkel
         static void feltolt(int[] vektor, bool rand){
             Random rnd = new Random();
             for (int i = 0; i < vektor.Length; i++)
@@ -19,6 +20,7 @@ namespace cshrp_gyak2
             }
         }
 
+        // vektor kiiratása konzolra
         static void kiir(int[] vektor){
             if(vektor[0] == -1)System.Console.WriteLine("-");
 
@@ -29,6 +31,7 @@ namespace cshrp_gyak2
             System.Console.WriteLine();
         }
 
+        // menü kiiratása konzolra
         static void menu(){
             System.Console.WriteLine();
             System.Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -43,6 +46,7 @@ namespace cshrp_gyak2
 
         }
 
+        // vektor elemeinek összege - összegzés tétel
         static int szum(int[] vektor){
             int sum = 0;
             for (int i = 0; i < vektor.Length; i++)
@@ -52,10 +56,12 @@ namespace cshrp_gyak2
             return sum;
         }
 
+        // vektor elemeinek átlaga
         static int atlag(int[] vektor){
             return szum(vektor)/vektor.Length;
         }
 
+        // min-/maxkiválasztás tétel; kimenet [min,max] érték szerint
         static int[] minmax(int[] vektor){
             int min = vektor[0];
             int max = vektor[0];
@@ -78,6 +84,7 @@ namespace cshrp_gyak2
             return valasz;
         }
 
+        // adott szám hanyadik helyeken fordul elő a vektorban
         static int[] indexek(int[] vektor, int szam){
             int[] index = new int[vektor.Length];
             feltolt(index, false);
@@ -93,6 +100,7 @@ namespace cshrp_gyak2
             return index;
         }
 
+        // adott szám hányszor szerepel a vektorban
         static int darab(int[] vektor, int szam){
             int[] tomb = indexek(vektor,szam);
             int darab = 0;
@@ -107,15 +115,20 @@ namespace cshrp_gyak2
         
         static void Main(string[] args)
         {
+            // vektor létrehozása és feltöltése
             int[] vektor = new int[25];
             feltolt(vektor, true);
+
+            // fő programciklus (végtelen ciklus, kilépés megfelelő menüopcióval)
             do{
+                // képernyő törlése majd menü kiiratása, választás bekérése
                 Console.Clear();
                 kiir(vektor);
                 menu();
                 string menupont = Console.ReadLine();
                 
                 System.Console.ForegroundColor = ConsoleColor.DarkCyan;
+                // megfelelő menüpont végrehajtása, eredmény kiiratása
                 switch (menupont)
                 {
                     case "1":
