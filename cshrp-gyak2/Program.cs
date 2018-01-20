@@ -140,11 +140,11 @@ namespace cshrp_gyak2
                         System.Console.WriteLine("Legnagyobb elem: " + minmax(vektor)[1]);
                         break;
                     case "3":
-                        System.Console.WriteLine("A 25-ös szám indexei: ");
+                        System.Console.Write("A 25-ös szám indexei: ");
                         kiir(indexek(vektor, 25));
                         break;
                     case "4":
-                        System.Console.Write("Kérek egy sztámot: ");
+                        System.Console.Write("Kérek egy számot: ");
                         int szam = Convert.ToInt32(Console.ReadLine());
                         System.Console.WriteLine("A megadott szám {0} példányban szerepel a vektorban.", darab(vektor,szam));
                         break;
