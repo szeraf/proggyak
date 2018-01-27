@@ -20,7 +20,14 @@ namespace palindrom
             bool pali = true;
             for (int i = 0; i < be.Length/2; i++)
             {
-                if (be[i] != be[be.Length-i-1]) pali = false;
+                if (be[i] != be[be.Length-i-1])
+                {
+                    pali = false;
+                }
+                if (be.Substring(i,2) == "sz" && be.Substring(be.Length-i-2,2) == "sz")
+                {
+                    pali = true;
+                }
             }
 
             if (pali)
