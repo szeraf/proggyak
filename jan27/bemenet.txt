@@ -1,0 +1,9 @@
+Sor1Adat1#Sor1Adat2
+Sor2Adat1#Sor2Adat2
+Sor3Adat1#Sor3Adat2
+Sor4Adat1#Sor4Adat2
+Sor5Adat1#Sor5Adat2
+Sor6Adat1#Sor6Adat2
+Sor7Adat1#Sor7Adat2
+Sor8Adat1#Sor8Adat2
+Sor9Adat1#Sor9Adat2
