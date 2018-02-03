@@ -5,7 +5,7 @@ namespace nevsor
 {
     class Program
     {
-        static int beolvas(string[,] nevsor, string filename){
+        static int beolvas(string filename){
             StreamReader sr = new StreamReader(filename);
             
             int i = 0;
@@ -37,41 +37,38 @@ namespace nevsor
             System.Console.Write("Választott menüpont: ");
         }
 
-        static void listazas(string[,] nevsor, int lastindex){
+        static void listazas(){
             int i = 0;
             while (i < lastindex)
             {
-                System.Console.WriteLine(nevsor[i,0] + " " + nevsor[i,1]);
+                System.Console.WriteLine("(" + (i+1) + ") " + nevsor[i,0] + " " + nevsor[i,1]);
                 i++;
             }
         }
 
-        static int ujnev(string nev, string szulev, int lastindex, string[,] nevsor){
+        static void ujnev(string nev, string szulev){
             if (lastindex < nevsor.GetLength(0)-1)
             {
                 nevsor[lastindex,0] = nev;
                 nevsor[lastindex,1] = szulev;
 
                 lastindex++;
-                rendezes(nevsor, lastindex);
+                rendezes();
             }
-
-            return lastindex;
         }
 
-        static int torles(int sorszam, string[,] nevsor, int lastindex){
+        static void torles(int sorszam){
             if (sorszam <= 100 && sorszam > 0)
             {
                 nevsor[sorszam,1] = "9999.99.99";
                 System.Console.WriteLine("Toroltem {0}-t a nevsorbol!", nevsor[sorszam,0]);
-                rendezes(nevsor, lastindex);
+                rendezes();
                 lastindex--;
             }
-            return lastindex;
         }
 
         // beszuro rendezes
-        static void rendezes(string[,] nevsor, int lastindex){
+        static void rendezes(){
             int j;
             string[] temp = new string[2];
 
@@ -93,7 +90,7 @@ namespace nevsor
             }
         }
 
-        static void fajlbair(string[,] nevsor, int lastindex, string filename){
+        static void fajlbair(string filename){
             StreamWriter sw = new StreamWriter(filename, false);
             int i = 0;
             while (i < lastindex)
@@ -105,16 +102,16 @@ namespace nevsor
             sw.Close();
         }
         
+        static string[,] nevsor = new string[100,2];
+        static int lastindex = -1;
+
         static void Main(string[] args)
         {
-            string[,] nevsor = new string[100,2];
-            int lastindex = -1;
-
             // FileMode: Create(felülír), CreateNew(ha már létezik error), Append(hozzáfűz) -- csak írható
             //           Open(csak olvasható)
             //           OpenOrCreate(írható és olvasható)
             //FileStream fs = new FileStream("nevsor.txt",FileMode.OpenOrCreate);
-            lastindex = beolvas(nevsor,"nevsor.txt");
+            lastindex = beolvas("nevsor.txt");
 
             do
             {
@@ -130,7 +127,7 @@ namespace nevsor
                         if(lastindex == -1){
                             System.Console.WriteLine("A nevsor ures.");
                         }else{
-                            listazas(nevsor,lastindex);
+                            listazas();
                         }
                         break;
                     case "2":
@@ -138,15 +135,17 @@ namespace nevsor
                         string nev = Console.ReadLine();
                         System.Console.Write("Szuletesi ido: ");
                         string szulido = Console.ReadLine();
-                        lastindex = ujnev(nev,szulido,lastindex,nevsor);
+                        ujnev(nev,szulido);
                         break;
                     case "3":
-                        System.Console.Write("Hanyadik elemet toroljuk? ");
+                        System.Console.WriteLine("Hanyadik elemet toroljuk? ");
+                        listazas();
                         int index = Convert.ToInt32(Console.ReadLine());
-                        lastindex = torles(index-1,nevsor,lastindex);
+                        if (index > 0 && index <= lastindex) { torles(index-1); }
+                        else {System.Console.WriteLine("Torles megszakitva!");}
                         break;
                     case "4":
-                        fajlbair(nevsor,lastindex,"nevsor.txt");
+                        fajlbair("nevsor.txt");
                         return;
                     default:
                         System.Console.WriteLine("Nem értelmezhető választás!");
