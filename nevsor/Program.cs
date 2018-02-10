@@ -14,7 +14,7 @@ namespace nevsor
             while (!sr.EndOfStream)
             {
                 temp = sr.ReadLine();
-                splitted = temp.Split(", ");
+                splitted = temp.Split(new[] {", ", ","}, StringSplitOptions.None); // possibly works on win too
                 nevsor[i,0] = splitted[0];
                 nevsor[i,1] = splitted[1];
                 i++;
