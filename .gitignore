@@ -218,3 +218,7 @@ stringmuveletek/obj/Debug/netcoreapp2.0/jan20.AssemblyInfo.cs
 stringmuveletek/obj/Debug/netcoreapp2.0/jan20.AssemblyInfoInputs.cache
 stringmuveletek/obj/Debug/netcoreapp2.0/jan20.csproj.CoreCompileInputs.cache
 stringmuveletek/obj/Debug/netcoreapp2.0/jan20.csproj.FileListAbsolute.txt
+matrixfeltolt/.vscode/*
+matrixfeltolt/bin/*
+matrixfeltolt/obj/*
+matrixfeltolt/matrixfeltolt.csproj
